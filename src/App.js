@@ -116,7 +116,7 @@ class App extends React.Component {
       <div>
         <StyleFlex>
 
-          <Filtro />
+          <Filtro> </Filtro>
 
           <ContainerProdutos>
 
