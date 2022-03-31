@@ -2,6 +2,11 @@ Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app
 
 ### Labe-commerce
 
+### Devs
+- Marcos Vinicius
+- Matheus Natal
+- Rodrigo Goularte
+
 ### O que funciona
 - DESCREVA O QUE FUNCIONA NO SEU PROJETO
 
