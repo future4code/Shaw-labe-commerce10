@@ -8,8 +8,11 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 23d8091faa43498032bfc9ac8dc25ac167335084
     "react-scripts": "^5.0.0",
     "styled-components": "^5.3.5"
   },

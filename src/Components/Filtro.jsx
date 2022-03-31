@@ -21,13 +21,24 @@ p{
 
 
 class Filtro extends React.Component {
-    render(){
+    
+  state ={
+    
+
+  }
+  
+  
+  render(){
       return (
         <StyleFiltro>  
         <div>
         <h3>Filtros</h3>
             <p>Valor mínimo:</p>
-              <input placeholder='5' type="number"/>
+              <input placeholder='5' type="number"
+              val
+              
+              
+              />
             <p>Valor máximo:</p>
               <input placeholder='1000' type="number"/>
             <p>Busca por nome:</p>
