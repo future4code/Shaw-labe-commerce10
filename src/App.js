@@ -72,7 +72,9 @@ class App extends React.Component {
       }
     ],
     categoria: "Nome do Produto",
-    ordem: 1
+    ordem: 1,
+    query:""
+  
   }
 
   atualizaCategoria = (event) => {
@@ -86,6 +88,11 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
+  updateQuery = (ev)=>{
+    this.setState({
+      query: ev.target.value
+  })
+}
 
   render() {
 
@@ -98,6 +105,11 @@ class App extends React.Component {
             return this.state.ordem * (a.valorProduto - b.valorProduto)
         }
       })
+
+      .filter(produto =>{
+        return produto.nomeProduto.includes(this.state.query)
+      })
+
       .map((produto) => {
         return (
           <CardProduto
@@ -108,6 +120,7 @@ class App extends React.Component {
           />
         )
       })
+   
 
 
 
@@ -115,8 +128,12 @@ class App extends React.Component {
 
       <div>
         <StyleFlex>
-
-          <Filtro> </Filtro>
+            {console.log(this.state.query)}
+          <Filtro
+          updateQuery={this.updateQuery}
+          query={this.state.query}
+          
+          />
 
           <ContainerProdutos>
 
