@@ -29,14 +29,15 @@ background-color: #FCE9D4;
 class CardProduto extends React.Component {
   render() {
     return (
-      <Card
+      <Card>
         <img src={this.props.imagemProduto} alt={"Imagem do produto"} />
         <h4>{this.props.nomeProduto}</h4>
         <h2>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
         <button>Adicionar Carrinho</button>
         <p>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
         <button onClick={() => this.props.addCarrinho(this.props.id)}>Adicionar Carrinho</button>
-      />
+      </Card>
+      
     );
   }
 }
