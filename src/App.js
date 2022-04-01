@@ -102,7 +102,10 @@ class App extends React.Component {
     categoria: "Nome do Produto",
     ordem: 1,
     carrinho: [],
-    query: ""
+    query:"",
+    minPrice:"",
+    maxPrice:""
+
   }
 
   atualizaCategoria = (event) => {
@@ -132,9 +135,18 @@ class App extends React.Component {
   updateQuery = (ev) => {
     this.setState({
       query: ev.target.value
-    })
-  }
-
+  })
+}
+updateMinPrice = (ev)=>{
+  this.setState({
+    minPrice:ev.target.value
+  })
+}
+updateMaxPrice = (ev)=>{
+  this.setState({
+    maxPrice:ev.target.value
+  })
+}
 
   // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
 
@@ -167,8 +179,15 @@ class App extends React.Component {
         }
       })
 
-      .filter(produto => {
-        return produto.nomeProduto.includes(this.state.query)
+      .filter(produto =>{
+        return produto.nomeProduto.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase()) 
+      })
+      .filter (produto=>{
+        return this.state.minPrice === "" || produto.valorProduto >= this.state.minPrice
+      })
+      .filter (produto=>{
+        return this.state.maxPrice === "" || produto.valorProduto <= this.state.maxPrice
+
       })
 
       .map((produto) => {
@@ -200,9 +219,12 @@ class App extends React.Component {
         <StyleFlex>
           {console.log(this.state.query)}
           <Filtro
-            updateQuery={this.updateQuery}
-            query={this.state.query}
-
+          updateQuery={this.updateQuery}
+          query={this.state.query}
+          minPrice={this.state.minPrice}
+          updateMinPrice={this.updateMinPrice}
+          maxPrice={this.state.maxPrice}
+          updateMaxPrice={this.updateMaxPrice}
           />
 
           <ContainerProdutos>
