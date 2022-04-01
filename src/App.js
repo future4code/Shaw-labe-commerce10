@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CardProduto from "./Components/CardProduto";
 import Filtro from './Components/Filtro';
 import Carrinho from './Components/Carrinho'
+import Ordenacao from "./Components/Ordenacao";
 
 const StyleFlex = styled.div`
   display:flex;
@@ -12,7 +13,7 @@ const StyleFlex = styled.div`
 `
 
 const ContainerProdutos = styled.div`
-  /* background-color: aqua; */
+  background-color: #101626;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -26,21 +27,17 @@ const ContainerTop = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 30px;
-`;
-
-const ContainerOrdenacao = styled.span`
-  /* background-color: azure; */
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: 100%;
+  padding: 0 10px;
+  font-size: 1em;
+  /* flex-wrap: wrap; */
 `;
 
 const ContainerCard = styled.div`
-  background-color: bisque;
+  /* background-color: bisque; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 20px;
 `;
 
 class App extends React.Component {
@@ -175,29 +172,14 @@ class App extends React.Component {
 
             <ContainerTop>
 
-              <p>Quantidade de produtos: {listaDeProdutos.length}</p>
+              <p>{listaDeProdutos.length} produtos</p>
 
-              <ContainerOrdenacao>
-                <label for="Categoria">Ordenação:</label>
-
-                <select
-                  name="Categoria"
-                  value={this.state.categoria}
-                  onChange={this.atualizaCategoria}
-                >
-                  <option value="Nome do Produto">Nome do Produto</option>
-                  <option value="Preço">Preço</option>
-                </select>
-
-                <select
-                  name="Ordem"
-                  value={this.state.ordem}
-                  onChange={this.atualizaOrdem}
-                >
-                  <option value={1}>Crescente</option>
-                  <option value={-1}>Decrescente</option>
-                </select>
-              </ContainerOrdenacao>
+              <Ordenacao
+                categoria={this.state.categoria}
+                atualizaCategoria={this.atualizaCategoria}
+                ordem={this.state.ordem}
+                atualizaOrdem={this.atualizaOrdem}
+              />
 
             </ContainerTop>
 

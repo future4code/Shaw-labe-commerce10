@@ -2,22 +2,41 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-background-color: white;
+background-color: #FCE9D4;
   /* border: 1px solid gray; */
   width: 200px;
   margin-bottom: 10px;
   padding: 10px;
-`;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  h2{
+    color: #3F3CA6;
+  }
+
+  button {
+    background-color: #3F3CA6;
+    color: white;
+    font-weight: bolder;
+    font-size: 1em;
+    border-radius: 10px;
+    width: 100%;
+    height: 30px;
+
+  }
+`
 
 class CardProduto extends React.Component {
   render() {
     return (
-      <Card>
+      <Card
         <img src={this.props.imagemProduto} alt={"Imagem do produto"} />
         <h4>{this.props.nomeProduto}</h4>
+        <h2>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
+        <button>Adicionar Carrinho</button>
         <p>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
         <button onClick={() => this.props.addCarrinho(this.props.id)}>Adicionar Carrinho</button>
-      </Card>
+      />
     );
   }
 }
