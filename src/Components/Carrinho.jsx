@@ -8,6 +8,11 @@ justify-content: space-evenly;
 align-items: center;
 
 button{
+    background-color: #3F3CA6;
+    color: white;
+    font-weight: bolder;
+    font-size: 1em;
+    border-radius: 10px;
   
 }
 

@@ -119,6 +119,7 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
+ 
 
   addCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -130,12 +131,14 @@ class App extends React.Component {
 
     novoProduto[indiceProduto].quantidade += 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
+
   }
 
   updateQuery = (ev) => {
     this.setState({
       query: ev.target.value
   })
+
 }
 updateMinPrice = (ev)=>{
   this.setState({
