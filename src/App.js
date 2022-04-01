@@ -98,6 +98,10 @@ class App extends React.Component {
     })
     novoCarrinho.push(this.state.produtos[indiceProduto])
 
+    novoProduto[indiceProduto].quantidade += 1 
+    this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
+    }
+
   updateQuery = (ev)=>{
     this.setState({
       query: ev.target.value
@@ -105,9 +109,6 @@ class App extends React.Component {
 }
 
 
-    novoProduto[indiceProduto].quantidade += 1
-    this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
-  }
   // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
 
   removeCarrinho = (id) => {
@@ -192,7 +193,6 @@ class App extends React.Component {
 
         </StyleFlex>
       </div>
-
 
     );
   }
