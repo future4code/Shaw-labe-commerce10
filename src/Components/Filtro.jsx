@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import App from '../App';
 
 const StyleFiltro = styled.div`
 display:flex;
@@ -22,11 +23,8 @@ p{
 
 class Filtro extends React.Component {
     
-  state ={
-    
-
-  }
   
+      
   
   render(){
       return (
@@ -34,15 +32,15 @@ class Filtro extends React.Component {
         <div>
         <h3>Filtros</h3>
             <p>Valor mínimo:</p>
-              <input placeholder='5' type="number"
-              val
-              
-              
-              />
+              <input placeholder='5' type="number"/>
             <p>Valor máximo:</p>
               <input placeholder='1000' type="number"/>
             <p>Busca por nome:</p>
-              <input placeholder='Nome do produto' type="number"/>
+              <input placeholder='Pesquisa'
+                     value={this.props.query}
+                     onChange={this.props.updateQuery}
+              />
+             
         </div>
         </StyleFiltro>
       )
