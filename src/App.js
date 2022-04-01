@@ -51,28 +51,34 @@ class App extends React.Component {
         nomeProduto: "Produto 1",
         valorProduto: 100.0,
         imagemProduto: "https://picsum.photos/200/200",
+        quantidade: 0
       },
       {
         id: 2,
         nomeProduto: "Produto 2",
         valorProduto: 300.0,
         imagemProduto: "https://picsum.photos/200/200",
+        quantidade: 0
       },
       {
         id: 3,
         nomeProduto: "Produto 3",
         valorProduto: 200.0,
         imagemProduto: "https://picsum.photos/200/200",
+        quantidade: 0
       },
       {
         id: 4,
         nomeProduto: "Produto 4",
         valorProduto: 350.05,
         imagemProduto: "https://picsum.photos/200/200",
+        quantidade: 0
       }
     ],
     categoria: "Nome do Produto",
-    ordem: 1
+    ordem: 1,
+    carrinho: []
+
   }
 
   atualizaCategoria = (event) => {
@@ -86,9 +92,39 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
+  // CARRINHO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+  addCarrinho = (id) => {
+    const novoCarrinho = [...this.state.carrinho]
+    const novoProduto = [...this.state.produtos]
+    const indiceProduto = this.state.produtos.findIndex((produto) => {
+      return produto.id === id
+    })
+    novoCarrinho.push(this.state.produtos[indiceProduto])
+
+    novoProduto[indiceProduto].quantidade += 1
+    this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
+  }
+  // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
+
+  removeCarrinho = (id) => {
+    const novoCarrinho = [...this.state.carrinho]
+    const novoProduto = [...this.state.produtos]
+    const indiceProduto = this.state.produtos.findIndex((produto) => {
+      return produto.id === id
+    })
+    const indiceCarrinho = this.state.carrinho.findIndex((produto) => {
+      return produto.id === id
+    })
+    novoCarrinho.splice(indiceCarrinho, 1)
+    novoProduto[indiceProduto].quantidade -= 1
+    this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
+
+
+  }
+  // removeCarrinho vai para carrinho COMO PROPS~~~~~~^^^
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   render() {
-
     const listaDeProdutos = this.state.produtos
       .sort((a, b) => {
         switch (this.state.categoria) {
@@ -105,10 +141,10 @@ class App extends React.Component {
             nomeProduto={produto.nomeProduto}
             valorProduto={produto.valorProduto}
             imagemProduto={produto.imagemProduto}
+            addCarrinho={this.addCarrinho}
           />
         )
       })
-
 
 
     return (
@@ -152,7 +188,8 @@ class App extends React.Component {
 
           </ContainerProdutos>
 
-          <Carrinho />
+          <Carrinho carrinho={this.state.carrinho} removeCarrinho={this.removeCarrinho} />
+
 
         </StyleFlex>
       </div>
