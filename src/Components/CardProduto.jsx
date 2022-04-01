@@ -16,7 +16,7 @@ class CardProduto extends React.Component {
         <img src={this.props.imagemProduto} alt={"Imagem do produto"} />
         <h4>{this.props.nomeProduto}</h4>
         <p>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-        <button>Adicionar Carrinho</button>
+        <button onClick={() => this.props.addCarrinho(this.props.id)}>Adicionar Carrinho</button>
       </Card>
     );
   }
