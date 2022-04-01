@@ -5,20 +5,47 @@ import Filtro from './Components/Filtro';
 import Carrinho from './Components/Carrinho'
 import Ordenacao from "./Components/Ordenacao";
 
+const ContainerPai = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  /* height: 100vh; */
+`
+
+const Header = styled.div`
+  display: flex;
+  background-color: #2D3073;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 70px;
+`
+
+const CadastroLogin = styled.div`
+  display: flex;
+  gap: 50px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+  }
+`
+
 const StyleFlex = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  width: 100vw;
+  width: 100%;
 `
 
 const ContainerProdutos = styled.div`
   background-color: #101626;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 `;
 
 const ContainerTop = styled.div`
@@ -45,7 +72,7 @@ class App extends React.Component {
     produtos: [
       {
         id: 1,
-        nomeProduto: "Produto 1",
+        nomeProduto: " Produto 1",
         valorProduto: 100.0,
         imagemProduto: "https://picsum.photos/200/200",
         quantidade: 0
@@ -78,6 +105,7 @@ class App extends React.Component {
     query:"",
     minPrice:"",
     maxPrice:""
+
   }
 
   atualizaCategoria = (event) => {
@@ -100,11 +128,11 @@ class App extends React.Component {
     })
     novoCarrinho.push(this.state.produtos[indiceProduto])
 
-    novoProduto[indiceProduto].quantidade += 1 
+    novoProduto[indiceProduto].quantidade += 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
-    }
+  }
 
-  updateQuery = (ev)=>{
+  updateQuery = (ev) => {
     this.setState({
       query: ev.target.value
   })
@@ -119,7 +147,6 @@ updateMaxPrice = (ev)=>{
     maxPrice:ev.target.value
   })
 }
-
 
   // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
 
@@ -160,6 +187,7 @@ updateMaxPrice = (ev)=>{
       })
       .filter (produto=>{
         return this.state.maxPrice === "" || produto.valorProduto <= this.state.maxPrice
+
       })
 
       .map((produto) => {
@@ -173,14 +201,23 @@ updateMaxPrice = (ev)=>{
           />
         )
       })
-   
+
 
 
     return (
 
-      <div>
+      <ContainerPai>
+
+        <Header>
+          <div>Nome da loja</div>
+          <CadastroLogin>
+            <a href="">Cadastre-se</a>
+            <a href="">Login</a>
+          </CadastroLogin>
+        </Header>
+
         <StyleFlex>
-            {console.log(this.state.query)}
+          {console.log(this.state.query)}
           <Filtro
           updateQuery={this.updateQuery}
           query={this.state.query}
@@ -213,7 +250,8 @@ updateMaxPrice = (ev)=>{
 
 
         </StyleFlex>
-      </div>
+
+      </ContainerPai>
 
     );
   }
