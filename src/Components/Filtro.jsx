@@ -32,9 +32,19 @@ class Filtro extends React.Component {
         <div>
         <h3>Filtros</h3>
             <p>Valor mínimo:</p>
-              <input placeholder='5' type="number"/>
+              <input 
+               placeholder='Preço mínimo'
+               type="number"
+               value={this.props.minPrice}
+               onChange={this.props.updateMinPrice}
+               />
             <p>Valor máximo:</p>
-              <input placeholder='1000' type="number"/>
+              <input 
+               placeholder='Preço máximo'
+               type="number"
+               value={this.props.maxPrice}
+               onChange={this.props.updateMaxPrice}
+               />
             <p>Busca por nome:</p>
               <input placeholder='Pesquisa'
                      value={this.props.query}
