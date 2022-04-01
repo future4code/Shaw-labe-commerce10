@@ -77,8 +77,8 @@ class App extends React.Component {
     ],
     categoria: "Nome do Produto",
     ordem: 1,
-    carrinho: []
-
+    carrinho: [],
+    query:""
   }
 
   atualizaCategoria = (event) => {
@@ -92,7 +92,7 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
-  // CARRINHO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
   addCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
     const novoProduto = [...this.state.produtos]
@@ -100,6 +100,13 @@ class App extends React.Component {
       return produto.id === id
     })
     novoCarrinho.push(this.state.produtos[indiceProduto])
+
+  updateQuery = (ev)=>{
+    this.setState({
+      query: ev.target.value
+  })
+}
+
 
     novoProduto[indiceProduto].quantidade += 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
@@ -134,6 +141,11 @@ class App extends React.Component {
             return this.state.ordem * (a.valorProduto - b.valorProduto)
         }
       })
+
+      .filter(produto =>{
+        return produto.nomeProduto.includes(this.state.query)
+      })
+
       .map((produto) => {
         return (
           <CardProduto
@@ -145,14 +157,19 @@ class App extends React.Component {
           />
         )
       })
+   
 
 
     return (
 
       <div>
         <StyleFlex>
-
-          <Filtro> </Filtro>
+            {console.log(this.state.query)}
+          <Filtro
+          updateQuery={this.updateQuery}
+          query={this.state.query}
+          
+          />
 
           <ContainerProdutos>
 
