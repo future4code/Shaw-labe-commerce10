@@ -34,7 +34,8 @@ class CardProduto extends React.Component {
         <h4>{this.props.nomeProduto}</h4>        
         <h2>{this.props.valorProduto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
         <button onClick={() => this.props.addCarrinho(this.props.id)}>Adicionar Carrinho</button>
-        </Card>
+      </Card>
+
     );
   }
 }
