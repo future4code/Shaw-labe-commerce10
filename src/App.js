@@ -89,6 +89,7 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
+ 
 
   addCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -98,15 +99,18 @@ class App extends React.Component {
     })
     novoCarrinho.push(this.state.produtos[indiceProduto])
 
-  updateQuery = (ev)=>{
-    this.setState({
-      query: ev.target.value
-  })
-}
-
-
     novoProduto[indiceProduto].quantidade += 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
+
+
+}
+
+updateQuery = (ev)=>{
+  this.setState({
+    query: ev.target.value
+})
+
+    
   }
   // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
 
