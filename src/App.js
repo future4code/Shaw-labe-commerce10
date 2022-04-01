@@ -9,7 +9,6 @@ const ContainerPai = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  /* height: 100vh; */
 `
 
 const Header = styled.div`
@@ -19,17 +18,20 @@ const Header = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  height: 70px;
+  height: 7vh;
 `
 
 const CadastroLogin = styled.div`
   display: flex;
   gap: 50px;
+  
 
   a {
     text-decoration: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
+    margin-right: 40px;
+    
   }
 `
 
@@ -44,8 +46,7 @@ const ContainerProdutos = styled.div`
   background-color: #101626;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  /* margin-top: 10px; */
+  flex-grow: 1; 
 `;
 
 const ContainerTop = styled.div`
@@ -55,12 +56,10 @@ const ContainerTop = styled.div`
   align-items: center;
   height: 30px;
   padding: 0 10px;
-  font-size: 1em;
-  /* flex-wrap: wrap; */
+  font-size: 1em; 
 `;
 
-const ContainerCard = styled.div`
-  /* background-color: bisque; */
+const ContainerCard = styled.div` 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -102,9 +101,9 @@ class App extends React.Component {
     categoria: "Nome do Produto",
     ordem: 1,
     carrinho: [],
-    query:"",
-    minPrice:"",
-    maxPrice:""
+    query: "",
+    minPrice: "",
+    maxPrice: ""
 
   }
 
@@ -119,7 +118,7 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
- 
+
 
   addCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -137,21 +136,19 @@ class App extends React.Component {
   updateQuery = (ev) => {
     this.setState({
       query: ev.target.value
-  })
+    })
 
-}
-updateMinPrice = (ev)=>{
-  this.setState({
-    minPrice:ev.target.value
-  })
-}
-updateMaxPrice = (ev)=>{
-  this.setState({
-    maxPrice:ev.target.value
-  })
-}
-
-  // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
+  }
+  updateMinPrice = (ev) => {
+    this.setState({
+      minPrice: ev.target.value
+    })
+  }
+  updateMaxPrice = (ev) => {
+    this.setState({
+      maxPrice: ev.target.value
+    })
+  }
 
   removeCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -166,10 +163,7 @@ updateMaxPrice = (ev)=>{
     novoProduto[indiceProduto].quantidade -= 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
 
-
   }
-  // removeCarrinho vai para carrinho COMO PROPS~~~~~~^^^
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   render() {
     const listaDeProdutos = this.state.produtos
@@ -182,13 +176,13 @@ updateMaxPrice = (ev)=>{
         }
       })
 
-      .filter(produto =>{
-        return produto.nomeProduto.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase()) 
+      .filter(produto => {
+        return produto.nomeProduto.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())
       })
-      .filter (produto=>{
+      .filter(produto => {
         return this.state.minPrice === "" || produto.valorProduto >= this.state.minPrice
       })
-      .filter (produto=>{
+      .filter(produto => {
         return this.state.maxPrice === "" || produto.valorProduto <= this.state.maxPrice
 
       })
@@ -206,7 +200,6 @@ updateMaxPrice = (ev)=>{
       })
 
 
-
     return (
 
       <ContainerPai>
@@ -222,12 +215,12 @@ updateMaxPrice = (ev)=>{
         <StyleFlex>
           {console.log(this.state.query)}
           <Filtro
-          updateQuery={this.updateQuery}
-          query={this.state.query}
-          minPrice={this.state.minPrice}
-          updateMinPrice={this.updateMinPrice}
-          maxPrice={this.state.maxPrice}
-          updateMaxPrice={this.updateMaxPrice}
+            updateQuery={this.updateQuery}
+            query={this.state.query}
+            minPrice={this.state.minPrice}
+            updateMinPrice={this.updateMinPrice}
+            maxPrice={this.state.maxPrice}
+            updateMaxPrice={this.updateMaxPrice}
           />
 
           <ContainerProdutos>
