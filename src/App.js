@@ -50,6 +50,7 @@ const ContainerProdutos = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1; 
+  border-radius:20px;
 `;
 
 const ContainerTop = styled.div`
@@ -59,7 +60,8 @@ const ContainerTop = styled.div`
   align-items: center;
   height: 30px;
   padding: 0 10px;
-  font-size: 1em; 
+  font-size: 1em;
+  border-radius:10px; 
 `;
 
 const ContainerCard = styled.div` 
@@ -67,6 +69,7 @@ const ContainerCard = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 20px;
+
 `;
 
 class App extends React.Component {

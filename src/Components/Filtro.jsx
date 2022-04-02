@@ -10,6 +10,7 @@ height:380px;
 width:230px;
 margin:10px;
 background-color:#101626;
+border-radius:20px;
 h3{
   margin-left:4px;
   color: white;
