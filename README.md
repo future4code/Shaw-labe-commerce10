@@ -8,10 +8,10 @@ Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app
 - Rodrigo Goularte
 
 ### O que funciona
-- DESCREVA O QUE FUNCIONA NO SEU PROJETO
+-Todos os filtros de busca estão funcionando,a ordenação tanto crescente quanto decrescente e a adição e remoção dos itens no carrinho, tanto quanto o valor final da compra.
 
 ### O que não funciona
-- DESCREVA O QUE NÃO FUNCIONA NO SEU PROJETO
+- Os links Cadastre-se e Login.
 
 ### Link Surge 
 - https://nutty-snake.surge.sh/
