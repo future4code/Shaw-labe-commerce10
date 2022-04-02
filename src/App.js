@@ -9,6 +9,7 @@ const ContainerPai = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  background-image:url(https://i.pinimg.com/originals/ce/10/f9/ce10f973c7527d1661c99ca05e10e503.jpg);
   /* height: 100vh; */
 `
 
