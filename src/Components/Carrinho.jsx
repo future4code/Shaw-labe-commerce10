@@ -29,11 +29,16 @@ gap: 5px;
 flex-wrap: wrap;
 height: 80vh;
 width: 20vw;
+background-color:#101626;
+color: white;   
+border-radius:20px;
+margin:10px;
 
 
 h3{
   margin: 5px;
   padding: 10px;
+  font-weight:bold;
 }
 
 `
