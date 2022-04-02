@@ -9,8 +9,11 @@ border:1px solid;
 height:380px;
 width:230px;
 margin:10px;
+background-color:#101626;
 h3{
   margin-left:4px;
+  color: white;
+  font-weight: bold;
 }input{
   margin-left:4px;
   justify-content:center;
@@ -18,6 +21,8 @@ h3{
 p{
   margin-left:4px;
   margin-bottom:2px;
+  color: white;
+  font-weight: bold;
 }`
 
 
