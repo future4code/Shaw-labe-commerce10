@@ -15,6 +15,10 @@ button{
     border-radius: 10px;
   
 }
+button:hover{
+    background: rgba(0,0,0,0);
+    color:#3F3CA6    
+}
 
 `
 
@@ -23,21 +27,22 @@ display: flex;
 flex-direction: column;
 gap: 5px;
 flex-wrap: wrap;
-border: 1px solid black;
 height: 80vh;
 width: 20vw;
-margin: 10px;
 
 
 h3{
   margin: 5px;
+  padding: 10px;
 }
 
-p{
-  display: flex;
-  margin: 5px;;
-}
-
+`
+const ValorTotal= styled.p`
+display: flex;
+margin: 5px;  
+font-weight: bolder; 
+font-size: 20px;
+padding: 10px;
 `
 
 class Carrinho extends React.Component {
@@ -66,7 +71,7 @@ class Carrinho extends React.Component {
                 <>
                     {RenderCarrinho}
                 </>
-                <p> Valor total: R${valortotal.toFixed(2)}</p>
+                <ValorTotal> Valor total: R${valortotal.toFixed(2)}</ValorTotal>
 
             </ContainerCarrinho>
         )
