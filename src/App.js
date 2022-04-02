@@ -11,6 +11,7 @@ const ContainerPai = styled.div`
   width: 100vw;
   background-image:url(https://i.pinimg.com/originals/ce/10/f9/ce10f973c7527d1661c99ca05e10e503.jpg);
   /* height: 100vh; */
+
 `
 
 const Header = styled.div`
@@ -20,17 +21,20 @@ const Header = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  height: 70px;
+  height: 7vh;
 `
 
 const CadastroLogin = styled.div`
   display: flex;
   gap: 50px;
+  
 
   a {
     text-decoration: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
+    margin-right: 40px;
+    
   }
 `
 
@@ -45,8 +49,7 @@ const ContainerProdutos = styled.div`
   background-color: #101626;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  /* margin-top: 10px; */
+  flex-grow: 1; 
 `;
 
 const ContainerTop = styled.div`
@@ -56,12 +59,10 @@ const ContainerTop = styled.div`
   align-items: center;
   height: 30px;
   padding: 0 10px;
-  font-size: 1em;
-  /* flex-wrap: wrap; */
+  font-size: 1em; 
 `;
 
-const ContainerCard = styled.div`
-  /* background-color: bisque; */
+const ContainerCard = styled.div` 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -73,39 +74,67 @@ class App extends React.Component {
     produtos: [
       {
         id: 1,
-        nomeProduto: " Produto 1",
-        valorProduto: 100.0,
-        imagemProduto: "https://picsum.photos/200/200",
+        nomeProduto: "Voo de gravidade 0",
+        valorProduto: 1000.0,
+        imagemProduto: "https://media.gazetadopovo.com.br/viver-bem/2016/02/vol_apesanteur_32_light-600x376-d6afd220.jpg",
         quantidade: 0
       },
       {
         id: 2,
-        nomeProduto: "Produto 2",
-        valorProduto: 300.0,
-        imagemProduto: "https://picsum.photos/200/200",
+        nomeProduto: "Hotel no lado oculto na Lua",
+        valorProduto: 30000.0,
+        imagemProduto: "https://casa.abril.com.br/wp-content/uploads/2016/11/moon2.jpeg?quality=70&strip=all",
         quantidade: 0
       },
       {
         id: 3,
-        nomeProduto: "Produto 3",
-        valorProduto: 200.0,
-        imagemProduto: "https://picsum.photos/200/200",
+        nomeProduto: "Estadia na Estação Espacial Internacional",
+        valorProduto: 10500.0,
+        imagemProduto: "https://s2.glbimg.com/t-zXbe2S1LFVSQbpvkEXeLWQ-rc=/e.glbimg.com/og/ed/f/original/2020/01/03/iss_1.jpg",
         quantidade: 0
       },
       {
         id: 4,
-        nomeProduto: "Produto 4",
-        valorProduto: 350.05,
-        imagemProduto: "https://picsum.photos/200/200",
+        nomeProduto: "Hotel na Lua com vista pra Terra",
+        valorProduto: 50000.00,
+        imagemProduto: "https://p2.trrsf.com/image/fget/cf/1200/1200/filters:quality(85)/images.terra.com/2013/12/26/as8-14-2383hrearthrise.jpg",
+        quantidade: 0
+      },
+      {
+        id: 5,
+        nomeProduto: "Passeio em Marte + tanque de oxigênio grátis",
+        valorProduto: 300000.00,
+        imagemProduto: "https://img.r7.com/images/marte-astronautas-israel-11102021122951495?dimensions=771x420&no_crop=true",
+        quantidade: 0
+      },
+      {
+        id: 6,
+        nomeProduto: "Hotel na órbita de Marte",
+        valorProduto: 240000.00,
+        imagemProduto: "https://uploads.metropoles.com/wp-content/uploads/2020/09/11170318/Marte-retro%CC%81grado-768x512-1-600x400.jpg",
+        quantidade: 0
+      },
+      {
+        id: 7,
+        nomeProduto: "Passeio pelos anéis de Saturno",
+        valorProduto: 600000.00,
+        imagemProduto: "https://nossaciencia.com.br/wp-content/uploads/2018/05/aneissaturno.jpg",
+        quantidade: 0
+      },
+      {
+        id: 8,
+        nomeProduto: "Passagem + Hotel na órbita de Jupiter",
+        valorProduto: 530000.00,
+        imagemProduto: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
         quantidade: 0
       }
     ],
     categoria: "Nome do Produto",
     ordem: 1,
     carrinho: [],
-    query:"",
-    minPrice:"",
-    maxPrice:""
+    query: "",
+    minPrice: "",
+    maxPrice: ""
 
   }
 
@@ -120,7 +149,7 @@ class App extends React.Component {
       ordem: event.target.value
     })
   }
- 
+
 
   addCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -138,21 +167,19 @@ class App extends React.Component {
   updateQuery = (ev) => {
     this.setState({
       query: ev.target.value
-  })
+    })
 
-}
-updateMinPrice = (ev)=>{
-  this.setState({
-    minPrice:ev.target.value
-  })
-}
-updateMaxPrice = (ev)=>{
-  this.setState({
-    maxPrice:ev.target.value
-  })
-}
-
-  // addcarrinho vai para CardProduto como PROPS ~~~~~~ ^^
+  }
+  updateMinPrice = (ev) => {
+    this.setState({
+      minPrice: ev.target.value
+    })
+  }
+  updateMaxPrice = (ev) => {
+    this.setState({
+      maxPrice: ev.target.value
+    })
+  }
 
   removeCarrinho = (id) => {
     const novoCarrinho = [...this.state.carrinho]
@@ -167,10 +194,7 @@ updateMaxPrice = (ev)=>{
     novoProduto[indiceProduto].quantidade -= 1
     this.setState({ carrinho: novoCarrinho, produtos: novoProduto })
 
-
   }
-  // removeCarrinho vai para carrinho COMO PROPS~~~~~~^^^
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   render() {
     const listaDeProdutos = this.state.produtos
@@ -183,13 +207,13 @@ updateMaxPrice = (ev)=>{
         }
       })
 
-      .filter(produto =>{
-        return produto.nomeProduto.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase()) 
+      .filter(produto => {
+        return produto.nomeProduto.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())
       })
-      .filter (produto=>{
+      .filter(produto => {
         return this.state.minPrice === "" || produto.valorProduto >= this.state.minPrice
       })
-      .filter (produto=>{
+      .filter(produto => {
         return this.state.maxPrice === "" || produto.valorProduto <= this.state.maxPrice
 
       })
@@ -207,7 +231,6 @@ updateMaxPrice = (ev)=>{
       })
 
 
-
     return (
 
       <ContainerPai>
@@ -223,12 +246,12 @@ updateMaxPrice = (ev)=>{
         <StyleFlex>
           {console.log(this.state.query)}
           <Filtro
-          updateQuery={this.updateQuery}
-          query={this.state.query}
-          minPrice={this.state.minPrice}
-          updateMinPrice={this.updateMinPrice}
-          maxPrice={this.state.maxPrice}
-          updateMaxPrice={this.updateMaxPrice}
+            updateQuery={this.updateQuery}
+            query={this.state.query}
+            minPrice={this.state.minPrice}
+            updateMinPrice={this.updateMinPrice}
+            maxPrice={this.state.maxPrice}
+            updateMaxPrice={this.updateMaxPrice}
           />
 
           <ContainerProdutos>
