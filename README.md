@@ -17,4 +17,4 @@ Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app
 - https://nutty-snake.surge.sh/
 
 ### Imagens
-<img width="960" alt="Captura de tela 2022-03-30 161000" src="https://user-images.githubusercontent.com/88721328/160913354-359d0521-90fe-4e50-9f29-349042b4fad3.png">
+![Captura de tela de 2022-04-02 13-21-24](https://user-images.githubusercontent.com/99002422/161392006-3b3bab26-9bc5-41a7-be36-f5edbbaadb58.png)
