@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerOrdenacao = styled.span`
-  /* background-color: azure; */
   display: flex;
   align-items: center;
   gap: 5px;

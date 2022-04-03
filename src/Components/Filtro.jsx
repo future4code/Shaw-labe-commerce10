@@ -41,14 +41,12 @@ class Filtro extends React.Component {
 
           <div>
             <label>Filtrar por:</label>
-            {/* <p>Valor mínimo:</p> */}
               <input 
                placeholder='Preço mínimo'
                type="number"
                value={this.props.minPrice}
                onChange={this.props.updateMinPrice}
                />
-            {/* <p>Valor máximo:</p> */}
               <input 
                placeholder='Preço máximo'
                type="number"
