@@ -6,7 +6,7 @@ const ContainerOrdenacao = styled.span`
   display: flex;
   align-items: center;
   gap: 5px;
-  height: 100%;
+  margin: 0;
 `;
 
 class Ordenacao extends React.Component {

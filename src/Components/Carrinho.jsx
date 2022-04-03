@@ -6,6 +6,7 @@ const ProdutoCarrinho = styled.div`
 display: flex;
 justify-content: space-evenly;
 align-items: center;
+width: 90%;
 
 button{
     background-color: #3F3CA6;
@@ -13,13 +14,25 @@ button{
     font-weight: bolder;
     font-size: 1em;
     border-radius: 10px;
-  
 }
 button:hover{
     background: rgba(0,0,0,0);
     color:#3F3CA6    
 }
+`
 
+const Descricao = styled.p`
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    flex-grow: 1;
+`
+
+const Quantidade = styled.p`
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    width: 30px;
 `
 
 const ContainerCarrinho = styled.div`
@@ -28,23 +41,29 @@ flex-direction: column;
 gap: 5px;
 flex-wrap: wrap;
 height: 80vh;
-width: 20vw;
+width: 400px;
 background-color:#101626;
 color: white;   
 border-radius:20px;
-margin:10px;
 
 
 h3{
-  margin: 5px;
+    margin:0;
   padding: 10px;
   font-weight:bold;
+  width: 60%;
 }
 
+@media screen and (min-device-width : 320px) and (max-device-width : 600px) {
+    width: 100%;
+  }
+
 `
+
 const ValorTotal= styled.p`
 display: flex;
-margin: 5px;  
+margin:0;
+box-sizing: border-box;
 font-weight: bolder; 
 font-size: 20px;
 padding: 10px;
@@ -62,8 +81,8 @@ class Carrinho extends React.Component {
         const RenderCarrinho = carrinhoFiltrado.map((produto) => {
             return (
                 <ProdutoCarrinho>
-                    <p>{produto.quantidade}x</p>
-                    <p>{produto.nomeProduto}</p>
+                    <Quantidade>{produto.quantidade}x</Quantidade>
+                    <Descricao>{produto.nomeProduto}</Descricao>
                     <button onClick={() => this.props.removeCarrinho(produto.id)}>Remover</button>
 
                 </ProdutoCarrinho>
@@ -73,10 +92,10 @@ class Carrinho extends React.Component {
         return (
             <ContainerCarrinho>
                 <h3> Carrinho: </h3>
-                <>
+                <div>
                     {RenderCarrinho}
-                </>
-                <ValorTotal> Valor total: R${valortotal.toFixed(2)}</ValorTotal>
+                </div>
+                <ValorTotal> Valor total: {valortotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ValorTotal>
 
             </ContainerCarrinho>
         )
