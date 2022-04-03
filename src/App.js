@@ -8,10 +8,9 @@ import Ordenacao from "./Components/Ordenacao";
 const ContainerPai = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  max-width: 100vw;
   background-image:url(https://i.pinimg.com/originals/ce/10/f9/ce10f973c7527d1661c99ca05e10e503.jpg);
-  /* height: 100vh; */
-
+  min-height: 100vh;
 `
 
 const Header = styled.div`
@@ -21,19 +20,23 @@ const Header = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  height: 7vh;
+  height: 10vh;
+
+  div {
+    padding: 0 10px;
+    font-size: 1.5em;
+  }
 `
 
 const CadastroLogin = styled.div`
   display: flex;
-  gap: 50px;
+  gap: 30px;
   
 
   a {
     text-decoration: none;
     color: white;
     font-size: 1em;
-    margin-right: 40px;
     
   }
 `
@@ -43,6 +46,13 @@ const StyleFlex = styled.div`
   flex-direction:row;
   justify-content:space-between;
   width: 100%;
+  min-width: 40%;
+  gap: 20px;
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 600px) {
+    display:flex;
+    flex-direction:column;
+  }
 `
 
 const ContainerProdutos = styled.div`
@@ -51,17 +61,22 @@ const ContainerProdutos = styled.div`
   flex-direction: column;
   flex-grow: 1; 
   border-radius:20px;
+  min-height: 100vh;
 `;
 
 const ContainerTop = styled.div`
   background-color: bisque;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
-  padding: 0 10px;
+  padding: 10px 10px;
   font-size: 1em;
   border-radius:10px; 
+
+  p {
+    margin: 0;
+  }
 `;
 
 const ContainerCard = styled.div` 
@@ -239,7 +254,7 @@ class App extends React.Component {
       <ContainerPai>
 
         <Header>
-          <div>Nome da loja</div>
+          <div>SpaceLab</div>
           <CadastroLogin>
             <a href="">Cadastre-se</a>
             <a href="">Login</a>
@@ -247,17 +262,18 @@ class App extends React.Component {
         </Header>
 
         <StyleFlex>
-          {console.log(this.state.query)}
-          <Filtro
-            updateQuery={this.updateQuery}
-            query={this.state.query}
-            minPrice={this.state.minPrice}
-            updateMinPrice={this.updateMinPrice}
-            maxPrice={this.state.maxPrice}
-            updateMaxPrice={this.updateMaxPrice}
-          />
+
 
           <ContainerProdutos>
+
+            <Filtro
+              updateQuery={this.updateQuery}
+              query={this.state.query}
+              minPrice={this.state.minPrice}
+              updateMinPrice={this.updateMinPrice}
+              maxPrice={this.state.maxPrice}
+              updateMaxPrice={this.updateMaxPrice}
+            />
 
             <ContainerTop>
 

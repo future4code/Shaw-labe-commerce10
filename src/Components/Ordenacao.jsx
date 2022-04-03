@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerOrdenacao = styled.span`
-  /* background-color: azure; */
   display: flex;
   align-items: center;
   gap: 5px;
-  height: 100%;
+  margin: 0;
 `;
 
 class Ordenacao extends React.Component {

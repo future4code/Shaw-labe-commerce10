@@ -1,23 +1,21 @@
 import React from 'react';
 import styled from 'styled-components'
-import App from '../App';
 
 const StyleFiltro = styled.div`
 display:flex;
-flex-direction:column;
 border:1px solid;
-height:380px;
-width:230px;
-margin:10px;
+padding:10px;
 background-color:#101626;
 border-radius:20px;
-h3{
+gap: 10vw;
+label{
   margin-left:4px;
   color: white;
   font-weight: bold;
 }input{
   margin-left:4px;
   justify-content:center;
+  width: 100px;
 }
 p{
   margin-left:4px;
@@ -26,6 +24,11 @@ p{
   font-weight: bold;
 }`
 
+const Busca = styled.div`
+  input {
+    width: 200px;
+  }
+`
 
 class Filtro extends React.Component {
     
@@ -34,30 +37,31 @@ class Filtro extends React.Component {
   
   render(){
       return (
-        <StyleFiltro>  
-        <div>
-        <h3>Filtros</h3>
-            <p>Valor mínimo:</p>
+        <StyleFiltro>
+
+          <div>
+            <label>Filtrar por:</label>
               <input 
                placeholder='Preço mínimo'
                type="number"
                value={this.props.minPrice}
                onChange={this.props.updateMinPrice}
                />
-            <p>Valor máximo:</p>
               <input 
                placeholder='Preço máximo'
                type="number"
                value={this.props.maxPrice}
                onChange={this.props.updateMaxPrice}
                />
-            <p>Busca por nome:</p>
+          </div>
+          <Busca>
+            <label>Busca:</label>
               <input placeholder='Pesquisa'
                      value={this.props.query}
                      onChange={this.props.updateQuery}
               />
+          </Busca>
              
-        </div>
         </StyleFiltro>
       )
     }
